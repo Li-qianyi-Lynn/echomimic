@@ -227,12 +227,13 @@ async def main():
     except ImportError:
         raise ImportError("edge-tts not installed. Run: pip install edge-tts")
 
-    tasks = [process_language(lang, cfg) for lang, cfg in LANGUAGES.items()]
+    run_only = {"pt", "ru", "it", "nl", "pl", "tr", "vi", "th"}
+    tasks = [process_language(lang, cfg) for lang, cfg in LANGUAGES.items() if lang in run_only]
     await asyncio.gather(*tasks)
 
     # Summary
     print("\n=== Generated files ===")
-    for lang, cfg in LANGUAGES.items():
+    for lang, cfg in {k: v for k, v in LANGUAGES.items() if k in run_only}.items():
         wav = OUTPUT_DIR / f"multilang_{lang}.wav"
         if wav.exists():
             import wave
