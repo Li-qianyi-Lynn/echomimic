@@ -138,6 +138,113 @@ Terminal Technology Department, Alipay, Ant Group.
 
 **（Some demo images above are sourced from image websites. If there is any infringement, we will immediately remove them and apologize.）**
 
+## 🌍 Cross-Lingual Facial Motion Accuracy Experiment
+
+### Overview
+
+This experiment evaluates whether EchoMimic's lip-sync accuracy and facial motion naturalness vary significantly across audio inputs from different languages. The same reference portrait and the same semantic content (translated into each language) are used, with only the language as the independent variable.
+
+### Experiment Goals
+
+- Verify lip-sync accuracy under audio from 30 different languages
+- Examine whether phonological typology (tonal, agglutinative, inflectional, Semitic, etc.) affects facial motion quality
+- Provide a cross-lingual benchmark for audio-driven portrait animation
+
+### Language Selection (30 Languages)
+
+Languages are selected to cover major phonological types:
+
+| Type | Languages | Rationale |
+|------|-----------|-----------|
+| **Tonal** | Chinese (zh), Vietnamese (vi), Thai (th) | Rich tonal variation, complex lip shapes |
+| **Agglutinative** | Japanese (ja), Korean (ko), Turkish (tr), Finnish (fi), Hungarian (hu) | Long morpheme chains, distinct rhythms |
+| **Indo-European — Romance** | Spanish (es), French (fr), Italian (it), Portuguese (pt), Romanian (ro) | Shared roots, vowel-rich |
+| **Indo-European — Germanic** | German (de), Dutch (nl), Swedish (sv), Danish (da), Norwegian (nb) | Consonant clusters, prosodic contrast |
+| **Indo-European — Slavic** | Russian (ru), Polish (pl), Czech (cs), Ukrainian (uk) | Heavy consonant clusters, Cyrillic/Latin mix |
+| **Indo-European — Other** | Greek (el), Hindi (hi), Bengali (bn) | Distinct scripts and phoneme inventories |
+| **Semitic** | Arabic (ar), Hebrew (he) | RTL scripts, pharyngeal / uvular consonants |
+| **Austronesian** | Indonesian (id), Malay (ms) | Isolating morphology, open syllables |
+
+Full language list:
+
+| Code | Language | TTS Voice (edge-tts) |
+|------|----------|----------------------|
+| `en` | English (American) | en-US-JennyNeural |
+| `zh` | Chinese (Mandarin) | zh-CN-XiaoxiaoNeural |
+| `ja` | Japanese | ja-JP-NanamiNeural |
+| `ko` | Korean | ko-KR-SunHiNeural |
+| `es` | Spanish | es-ES-ElviraNeural |
+| `fr` | French | fr-FR-DeniseNeural |
+| `de` | German | de-DE-KatjaNeural |
+| `ar` | Arabic | ar-SA-ZariyahNeural |
+| `pt` | Portuguese (Brazilian) | pt-BR-FranciscaNeural |
+| `ru` | Russian | ru-RU-SvetlanaNeural |
+| `it` | Italian | it-IT-ElsaNeural |
+| `nl` | Dutch | nl-NL-ColetteNeural |
+| `pl` | Polish | pl-PL-ZofiaNeural |
+| `tr` | Turkish | tr-TR-EmelNeural |
+| `vi` | Vietnamese | vi-VN-HoaiMyNeural |
+| `th` | Thai | th-TH-PremwadeeNeural |
+| `hi` | Hindi | hi-IN-SwaraNeural |
+| `id` | Indonesian | id-ID-GadisNeural |
+| `ms` | Malay | ms-MY-YasminNeural |
+| `sv` | Swedish | sv-SE-SofieNeural |
+| `da` | Danish | da-DK-ChristelNeural |
+| `fi` | Finnish | fi-FI-NooraNeural |
+| `nb` | Norwegian (Bokmål) | nb-NO-PernilleNeural |
+| `cs` | Czech | cs-CZ-VlastaNeural |
+| `hu` | Hungarian | hu-HU-NoemiNeural |
+| `ro` | Romanian | ro-RO-AlinaNeural |
+| `uk` | Ukrainian | uk-UA-PolinaNeural |
+| `el` | Greek | el-GR-AthinaNeural |
+| `he` | Hebrew | he-IL-HilaNeural |
+| `bn` | Bengali | bn-IN-TanishaaNeural |
+
+### Controlled Variables
+
+| Variable | Value |
+|----------|-------|
+| Reference image | `assets/test_imgs/f.jpg` (same face for all runs) |
+| Semantic content | Same sentence translated into each language |
+| Audio file format | 24000 Hz mono WAV (Whisper internally resamples to 16000 Hz) |
+| Inference seed | 420 |
+| Diffusion steps | 30 |
+| CFG scale | 2.5 |
+| Resolution | 512 × 512 |
+| FPS | 24 |
+
+**Independent variable:** Language / phonological type
+
+### Stimulus Sentence
+
+All audio files are TTS-synthesized from translations of the same neutral sentence:
+
+> *"The sun sets slowly over the distant mountains, painting the sky with shades of orange and gold. A gentle breeze moves through the leaves."*
+
+The sentence was chosen for phonetic richness (bilabials, fricatives, vowel variety) and neutral emotional content.
+
+### Audio Preparation
+
+Install dependencies and generate all 30 audio files:
+
+```bash
+conda activate echomimic
+pip install edge-tts
+python prepare_multilang_audio.py
+```
+
+Output: `assets/test_audios/multilang_<lang>.wav` — mono WAV at 24000 Hz.
+
+### Running the Experiment
+
+```bash
+python infer_audio2vid.py --config ./configs/prompts/multilang_f.yaml
+```
+
+Output videos are saved to `output/<date>/`.
+
+---
+
 ## ⚒️ Installation
 
 ### Download the Codes

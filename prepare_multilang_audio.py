@@ -22,6 +22,7 @@ from pathlib import Path
 # Chosen for phonetic richness (bilabials, fricatives, vowel variety).
 # ---------------------------------------------------------------------------
 LANGUAGES = {
+    # ── Original 8 ──────────────────────────────────────────────────────────
     "en": {
         "voice": "en-US-JennyNeural",
         "text": "The sun sets slowly over the distant mountains, painting the sky with shades of orange and gold. A gentle breeze moves through the leaves.",
@@ -61,6 +62,117 @@ LANGUAGES = {
         "voice": "ar-SA-ZariyahNeural",
         "text": "تغرب الشمس ببطء خلف الجبال البعيدة، وتصبغ السماء بظلال البرتقالي والذهبي. نسيم لطيف يتحرك بين أوراق الأشجار.",
         "note": "Arabic",
+    },
+    # ── Added 22 ─────────────────────────────────────────────────────────────
+    "pt": {
+        "voice": "pt-BR-FranciscaNeural",
+        "text": "O sol se põe lentamente sobre as montanhas distantes, pintando o céu com tons de laranja e dourado. Uma brisa suave move as folhas das árvores.",
+        "note": "Portuguese (Brazilian)",
+    },
+    "ru": {
+        "voice": "ru-RU-SvetlanaNeural",
+        "text": "Солнце медленно садится за далёкие горы, окрашивая небо в оранжевые и золотые тона. Лёгкий ветерок шевелит листья деревьев.",
+        "note": "Russian",
+    },
+    "it": {
+        "voice": "it-IT-ElsaNeural",
+        "text": "Il sole tramonta lentamente sulle montagne lontane, dipingendo il cielo di sfumature arancioni e dorate. Una leggera brezza muove le foglie degli alberi.",
+        "note": "Italian",
+    },
+    "nl": {
+        "voice": "nl-NL-ColetteNeural",
+        "text": "De zon zakt langzaam achter de verre bergen en kleurt de lucht in tinten oranje en goud. Een zacht briesje beweegt door de bladeren.",
+        "note": "Dutch",
+    },
+    "pl": {
+        "voice": "pl-PL-ZofiaNeural",
+        "text": "Słońce zachodzi powoli za odległe góry, malując niebo odcieniami pomarańczy i złota. Delikatny wiatr porusza liśćmi drzew.",
+        "note": "Polish",
+    },
+    "tr": {
+        "voice": "tr-TR-EmelNeural",
+        "text": "Güneş uzaktaki dağların arkasına yavaşça inerken gökyüzünü turuncu ve altın rengi tonlarıyla boyuyor. Hafif bir esinti yaprakların arasından geçiyor.",
+        "note": "Turkish",
+    },
+    "vi": {
+        "voice": "vi-VN-HoaiMyNeural",
+        "text": "Mặt trời lặn chậm rãi sau những ngọn núi xa, nhuộm bầu trời bằng sắc cam và vàng óng. Một cơn gió nhẹ thổi qua những chiếc lá.",
+        "note": "Vietnamese",
+    },
+    "th": {
+        "voice": "th-TH-PremwadeeNeural",
+        "text": "ดวงอาทิตย์ค่อยๆ ลับขอบฟ้าหลังเทือกเขาที่อยู่ไกลออกไป ทาสีท้องฟ้าด้วยสีส้มและสีทอง สายลมอ่อนโยนพัดผ่านใบไม้",
+        "note": "Thai",
+    },
+    "hi": {
+        "voice": "hi-IN-SwaraNeural",
+        "text": "सूर्य दूर के पहाड़ों के पीछे धीरे-धीरे अस्त होता है, आकाश को नारंगी और सुनहरे रंगों से रंग देता है। एक हल्की हवा पत्तियों से होकर गुज़रती है।",
+        "note": "Hindi",
+    },
+    "id": {
+        "voice": "id-ID-GadisNeural",
+        "text": "Matahari terbenam perlahan di balik pegunungan yang jauh, mewarnai langit dengan nuansa jingga dan emas. Angin sepoi-sepoi bergerak di antara dedaunan.",
+        "note": "Indonesian",
+    },
+    "ms": {
+        "voice": "ms-MY-YasminNeural",
+        "text": "Matahari terbenam perlahan-lahan di sebalik gunung-ganang yang jauh, melukis langit dengan warna jingga dan emas. Angin sepoi-sepoi bergerak melalui dedaunan.",
+        "note": "Malay",
+    },
+    "sv": {
+        "voice": "sv-SE-SofieNeural",
+        "text": "Solen sjunker långsamt bakom de avlägsna bergen och målar himlen i nyanser av orange och guld. En mild bris rör sig genom löven.",
+        "note": "Swedish",
+    },
+    "da": {
+        "voice": "da-DK-ChristelNeural",
+        "text": "Solen synker langsomt bag de fjerne bjerge og maler himlen i nuancer af orange og guld. En blid brise bevæger sig gennem bladene.",
+        "note": "Danish",
+    },
+    "fi": {
+        "voice": "fi-FI-NooraNeural",
+        "text": "Aurinko laskee hitaasti kaukaisten vuorten taakse maalaten taivaan oranssin ja kullan sävyillä. Lempeä tuulenvire liikkuu lehtien läpi.",
+        "note": "Finnish",
+    },
+    "nb": {
+        "voice": "nb-NO-PernilleNeural",
+        "text": "Solen synker sakte bak de fjerne fjellene og maler himmelen i nyanser av oransje og gull. En mild bris beveger seg gjennom bladene.",
+        "note": "Norwegian (Bokmål)",
+    },
+    "cs": {
+        "voice": "cs-CZ-VlastaNeural",
+        "text": "Slunce pomalu zapadá za vzdálené hory a maluje oblohu odstíny oranžové a zlaté. Jemný vánek se pohybuje listím stromů.",
+        "note": "Czech",
+    },
+    "hu": {
+        "voice": "hu-HU-NoemiNeural",
+        "text": "A nap lassan lenyugszik a távoli hegyek mögé, narancs és arany árnyalatokkal festve az eget. Enyhe szellő mozgatja a leveleket.",
+        "note": "Hungarian",
+    },
+    "ro": {
+        "voice": "ro-RO-AlinaNeural",
+        "text": "Soarele apune încet peste munții îndepărtați, pictând cerul în nuanțe de portocaliu și auriu. O briză blândă mișcă frunzele copacilor.",
+        "note": "Romanian",
+    },
+    "uk": {
+        "voice": "uk-UA-PolinaNeural",
+        "text": "Сонце повільно сідає за далекі гори, фарбуючи небо в помаранчеві та золоті відтінки. Легкий вітерець ворушить листя дерев.",
+        "note": "Ukrainian",
+    },
+    "el": {
+        "voice": "el-GR-AthinaNeural",
+        "text": "Ο ήλιος δύει αργά πίσω από τα μακρινά βουνά, βάφοντας τον ουρανό με αποχρώσεις πορτοκαλί και χρυσού. Μια απαλή αύρα κινείται μέσα από τα φύλλα.",
+        "note": "Greek",
+    },
+    "he": {
+        "voice": "he-IL-HilaNeural",
+        "text": "השמש שוקעת לאט מאחורי ההרים הרחוקים, צובעת את השמיים בגוני כתום וזהב. רוח קלה עוברת בין העלים.",
+        "note": "Hebrew",
+    },
+    "bn": {
+        "voice": "bn-IN-TanishaaNeural",
+        "text": "সূর্য ধীরে ধীরে দূরের পাহাড়ের পিছনে অস্ত যায়, আকাশকে কমলা ও সোনালি রঙে রাঙিয়ে দেয়। একটি মৃদু বাতাস পাতার মধ্য দিয়ে বয়ে যায়।",
+        "note": "Bengali",
     },
 }
 
