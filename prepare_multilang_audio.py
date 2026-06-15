@@ -227,7 +227,7 @@ async def main():
     except ImportError:
         raise ImportError("edge-tts not installed. Run: pip install edge-tts")
 
-    run_only = {"pt", "ru", "it", "nl", "pl", "tr", "vi", "th"}
+    run_only = {"en", "zh", "ja", "ko", "es", "fr", "de", "ar"}
     tasks = [process_language(lang, cfg) for lang, cfg in LANGUAGES.items() if lang in run_only]
     await asyncio.gather(*tasks)
 
